@@ -4,159 +4,106 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meu Treino</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0a0e1a;
-    --card: #111827;
-    --border: #1f2d45;
-    --accent: #00d4aa;
-    --accent2: #ff6b35;
-    --text: #e8edf5;
-    --muted: #6b7a99;
-    --seg: #00d4aa;
-    --ter: #4f8ef7;
-    --qui: #ff6b35;
-    --pre: #a78bfa;
-    --pos: #f59e0b;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; min-height: 100vh; }
+:root {
+  --bg: #0a0e1a; --card: #111827; --border: #1f2d45;
+  --text: #e8edf5; --muted: #6b7a99;
+  --seg: #00d4aa; --ter: #4f8ef7; --qui: #ff6b35; --pre: #a78bfa; --pos: #f59e0b;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:"DM Sans",sans-serif; }
 
-  header {
-    background: linear-gradient(135deg, #0d1b2e 0%, #0a0e1a 100%);
-    border-bottom: 1px solid var(--border);
-    padding: 20px 24px 0;
-    position: sticky; top: 0; z-index: 100;
-  }
-  .header-top { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-  .logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent), #00a882); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
-  .header-title h1 { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px; }
-  .header-title p { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+header { background:#0d1b2e; border-bottom:1px solid var(--border); padding:18px 20px 0; position:sticky; top:0; z-index:100; }
+.logo { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+.logo-icon { width:38px; height:38px; background:var(--seg); border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:18px; }
+.logo h1 { font-family:"Bebas Neue",sans-serif; font-size:24px; letter-spacing:2px; }
+.logo p { font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
 
-  .tabs { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
-  .tabs::-webkit-scrollbar { display: none; }
-  .tab { flex-shrink: 0; padding: 10px 18px; border-radius: 10px 10px 0 0; font-size: 13px; font-weight: 600; cursor: pointer; border: none; background: transparent; color: var(--muted); transition: all 0.2s; display: flex; align-items: center; gap: 7px; border-top: 2px solid transparent; }
-  .tab:hover { color: var(--text); background: rgba(255,255,255,0.04); }
-  .tab.active { color: var(--text); background: rgba(255,255,255,0.06); }
-  .tab[data-tab="seg"].active { border-top-color: var(--seg); color: var(--seg); }
-  .tab[data-tab="ter"].active { border-top-color: var(--ter); color: var(--ter); }
-  .tab[data-tab="qui"].active { border-top-color: var(--qui); color: var(--qui); }
-  .tab[data-tab="pre"].active { border-top-color: var(--pre); color: var(--pre); }
-  .tab[data-tab="pos"].active { border-top-color: var(--pos); color: var(--pos); }
-  .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .tab[data-tab="seg"] .dot { background: var(--seg); }
-  .tab[data-tab="ter"] .dot { background: var(--ter); }
-  .tab[data-tab="qui"] .dot { background: var(--qui); }
-  .tab[data-tab="pre"] .dot { background: var(--pre); }
-  .tab[data-tab="pos"] .dot { background: var(--pos); }
+.tabs { display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; }
+.tabs::-webkit-scrollbar { display:none; }
+.tab { flex-shrink:0; padding:9px 14px; border:none; background:transparent; color:var(--muted); font-family:"DM Sans",sans-serif; font-size:12px; font-weight:700; cursor:pointer; border-radius:8px 8px 0 0; border-top:2px solid transparent; display:flex; align-items:center; gap:6px; transition:all .2s; }
+.tab:hover { background:rgba(255,255,255,.04); color:var(--text); }
+.tab.active { background:rgba(255,255,255,.06); color:var(--text); }
+.tab[data-tab="seg"].active { border-top-color:var(--seg); color:var(--seg); }
+.tab[data-tab="ter"].active { border-top-color:var(--ter); color:var(--ter); }
+.tab[data-tab="qui"].active { border-top-color:var(--qui); color:var(--qui); }
+.tab[data-tab="pre"].active { border-top-color:var(--pre); color:var(--pre); }
+.tab[data-tab="pos"].active { border-top-color:var(--pos); color:var(--pos); }
+.dot { width:7px; height:7px; border-radius:50%; }
+.tab[data-tab="seg"] .dot { background:var(--seg); }
+.tab[data-tab="ter"] .dot { background:var(--ter); }
+.tab[data-tab="qui"] .dot { background:var(--qui); }
+.tab[data-tab="pre"] .dot { background:var(--pre); }
+.tab[data-tab="pos"] .dot { background:var(--pos); }
 
-  .content { padding: 28px 20px; max-width: 900px; margin: 0 auto; }
-  .section { display: none; }
-  .section.active { display: block; }
+.content { padding:24px 16px; max-width:860px; margin:0 auto; }
+.section { display:none; }
+.section.active { display:block; }
 
-  .ficha-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; padding: 20px 24px; background: var(--card); border-radius: 16px; border: 1px solid var(--border); }
-  .ficha-badge { font-family: 'Bebas Neue', sans-serif; font-size: 48px; line-height: 1; opacity: 0.15; }
-  .ficha-info h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; }
-  .ficha-info p { font-size: 13px; color: var(--muted); margin-top: 4px; }
-  .ficha-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-  .tag { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+.ficha-header { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px 20px; margin-bottom:22px; display:flex; align-items:center; gap:14px; }
+.ficha-letter { font-family:"Bebas Neue",sans-serif; font-size:52px; opacity:.15; line-height:1; }
+.ficha-info h2 { font-family:"Bebas Neue",sans-serif; font-size:26px; letter-spacing:2px; }
+.ficha-info p { font-size:12px; color:var(--muted); margin-top:3px; }
+.tags { display:flex; gap:6px; margin-top:6px; flex-wrap:wrap; }
+.tag { font-size:10px; padding:2px 9px; border-radius:20px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; }
 
-  .grupo { margin-bottom: 28px; }
-  .grupo-titulo { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-  .grupo-titulo::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.aviso { background:rgba(255,107,53,.08); border:1px solid rgba(255,107,53,.3); border-radius:12px; padding:14px 16px; margin-bottom:22px; display:flex; gap:10px; }
+.aviso-body h4 { font-size:12px; font-weight:700; color:#ff6b35; text-transform:uppercase; letter-spacing:.5px; margin-bottom:5px; }
+.aviso-body li { font-size:12px; color:var(--muted); margin-left:14px; margin-top:3px; }
 
-  .ex-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 12px; overflow: hidden; transition: border-color 0.2s; }
-  .ex-card:hover { border-color: #2a3d5a; }
-  .ex-header { display: flex; align-items: center; gap: 14px; padding: 16px 18px; cursor: pointer; user-select: none; }
-  .ex-num { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 16px; flex-shrink: 0; }
-  .ex-info { flex: 1; }
-  .ex-name { font-size: 15px; font-weight: 600; color: var(--text); }
-  .ex-sets { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .ex-arrow { color: var(--muted); font-size: 18px; transition: transform 0.25s; }
-  .ex-card.open .ex-arrow { transform: rotate(180deg); }
+.grupo { margin-bottom:24px; }
+.grupo-titulo { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:2px; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+.grupo-titulo::after { content:""; flex:1; height:1px; background:var(--border); }
 
-  .ex-body { display: none; padding: 0 18px 18px; }
-  .ex-card.open .ex-body { display: block; }
+.ex { background:var(--card); border:1px solid var(--border); border-radius:12px; margin-bottom:8px; overflow:hidden; }
+.ex-topo { display:flex; align-items:center; gap:12px; padding:14px 16px; cursor:pointer; user-select:none; }
+.ex-topo:hover { background:rgba(255,255,255,.02); }
+.ex-num { width:30px; height:30px; border-radius:7px; display:flex; align-items:center; justify-content:center; font-family:"Bebas Neue",sans-serif; font-size:15px; flex-shrink:0; }
+.ex-nome { font-size:14px; font-weight:600; flex:1; }
+.ex-series { font-size:11px; color:var(--muted); margin-top:2px; }
+.ex-seta { color:var(--muted); font-size:16px; transition:transform .25s; flex-shrink:0; }
+.ex.aberto .ex-seta { transform:rotate(180deg); }
 
-  /* VIDEO BUTTON */
-  .video-btn {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: #1a2340;
-    border: 1px solid #2a3d5a;
-    border-radius: 12px;
-    padding: 14px 18px;
-    text-decoration: none;
-    color: var(--text);
-    transition: all 0.2s;
-    cursor: pointer;
-  }
-  .video-btn:hover { background: #1f2d50; border-color: #3a5080; transform: translateY(-1px); }
-  .video-thumb {
-    width: 80px; height: 52px;
-    border-radius: 8px;
-    background: #ff0000;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 24px;
-    flex-shrink: 0;
-    position: relative;
-    overflow: hidden;
-  }
-  .video-thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
-  .play-overlay {
-    position: absolute;
-    width: 28px; height: 28px;
-    background: rgba(0,0,0,0.7);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px;
-  }
-  .video-info { flex: 1; }
-  .video-label { font-size: 13px; font-weight: 600; color: var(--text); }
-  .video-sub { font-size: 11px; color: var(--muted); margin-top: 3px; }
-  .video-arrow { color: var(--muted); font-size: 16px; }
+.ex-corpo { display:none; padding:0 16px 14px; }
+.ex.aberto .ex-corpo { display:block; }
 
-  .video-tip { font-size: 12px; color: var(--muted); margin-top: 10px; display: flex; align-items: center; gap: 6px; }
+/* BOTÃO YOUTUBE — simples e direto */
+.btn-yt {
+  display:block;
+  width:100%;
+  padding:13px 16px;
+  background:#ff0000;
+  color:#fff;
+  font-family:"DM Sans",sans-serif;
+  font-size:14px;
+  font-weight:700;
+  text-align:center;
+  text-decoration:none;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+  letter-spacing:.3px;
+}
+.btn-yt:hover { background:#cc0000; }
 
-  .alert { background: rgba(255,107,53,0.08); border: 1px solid rgba(255,107,53,0.3); border-radius: 12px; padding: 16px 20px; margin-bottom: 28px; display: flex; gap: 12px; align-items: flex-start; }
-  .alert-icon { font-size: 20px; flex-shrink: 0; }
-  .alert-body h4 { font-size: 13px; font-weight: 700; color: var(--accent2); margin-bottom: 6px; letter-spacing: 0.5px; text-transform: uppercase; }
-  .alert-body ul { list-style: none; font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
-  .alert-body ul li::before { content: "→ "; color: var(--accent2); }
+.dica { font-size:11px; color:var(--muted); margin-top:8px; }
 
-  .cronometro { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-bottom: 24px; text-align: center; }
-  .cronometro h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 12px; }
-  .timer-display { font-family: 'Bebas Neue', sans-serif; font-size: 72px; letter-spacing: 4px; line-height: 1; }
-  .timer-btns { display: flex; gap: 10px; justify-content: center; margin-top: 16px; }
-  .btn { padding: 10px 24px; border-radius: 8px; border: none; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: opacity 0.15s; }
-  .btn:hover { opacity: 0.85; }
-  .btn-primary { background: var(--accent); color: #000; }
-  .btn-ghost { background: var(--border); color: var(--text); }
-
-  .seg .ex-num { background: rgba(0,212,170,0.12); color: var(--seg); }
-  .ter .ex-num { background: rgba(79,142,247,0.12); color: var(--ter); }
-  .qui .ex-num { background: rgba(255,107,53,0.12); color: var(--qui); }
-  .pre .ex-num { background: rgba(167,139,250,0.12); color: var(--pre); }
-  .pos .ex-num { background: rgba(245,158,11,0.12); color: var(--pos); }
-
-  .timer-seg { color: var(--seg); }
-  .timer-pre { color: var(--pre); }
-  .timer-pos { color: var(--pos); }
-
-  @media (max-width: 600px) {
-    header { padding: 16px 16px 0; }
-    .content { padding: 20px 14px; }
-  }
+/* CRONÔMETRO */
+.crono { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; margin-bottom:22px; text-align:center; }
+.crono h3 { font-size:11px; text-transform:uppercase; letter-spacing:2px; color:var(--muted); margin-bottom:10px; }
+.crono-display { font-family:"Bebas Neue",sans-serif; font-size:68px; letter-spacing:4px; line-height:1; }
+.crono-btns { display:flex; gap:10px; justify-content:center; margin-top:14px; }
+.btn-crono { padding:9px 22px; border-radius:8px; border:none; font-family:"DM Sans",sans-serif; font-size:13px; font-weight:700; cursor:pointer; }
+.btn-ghost { background:var(--border); color:var(--text); }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="header-top">
+  <div class="logo">
     <div class="logo-icon">🏋️</div>
-    <div class="header-title">
+    <div>
       <h1>Meu Treino</h1>
       <p>Estabilidade · Força · Prevenção</p>
     </div>
@@ -172,263 +119,535 @@
 
 <div class="content">
 
-<!-- ===== SEGUNDA / FICHA A ===== -->
-<div class="section active seg" id="seg">
+<!-- SEGUNDA -->
+<div class="section active" id="seg">
   <div class="ficha-header">
-    <div class="ficha-badge" style="color:var(--seg)">A</div>
+    <div class="ficha-letter" style="color:var(--seg)">A</div>
     <div class="ficha-info">
       <h2 style="color:var(--seg)">Ficha A — Segunda</h2>
-      <p>Alongamento + Mobilidade + Superiores + Glúteo</p>
-      <div class="ficha-tags"><span class="tag" style="background:rgba(0,212,170,0.12);color:var(--seg)">Incluir equilíbrio</span><span class="tag" style="background:rgba(0,212,170,0.12);color:var(--seg)">Manhã</span></div>
+      <p>Alongamento · Mobilidade · Superiores · Glúteo</p>
+      <div class="tags">
+        <span class="tag" style="background:rgba(0,212,170,.12);color:var(--seg)">Equilíbrio</span>
+        <span class="tag" style="background:rgba(0,212,170,.12);color:var(--seg)">Manhã</span>
+      </div>
     </div>
   </div>
-  <div class="alert">
-    <div class="alert-icon">⚠️</div>
-    <div class="alert-body">
-      <h4>Regras do Treino</h4>
-      <ul><li>Joelho não pode entrar pra dentro</li><li>Dor máxima: 3/10</li><li>Controle sempre &gt; velocidade</li><li>Evoluir aos poucos</li></ul>
-    </div>
-  </div>
-
-  <div class="grupo"><div class="grupo-titulo" style="color:var(--seg)">⏱ Alongamentos</div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">1</div><div class="ex-info"><div class="ex-name">Flexor de Quadril</div><div class="ex-sets">2 × 30 seg cada lado</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=YQmpO9VT2X4" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/YQmpO9VT2X4/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Flexor de Quadril — Alongamento</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Mantenha a pelve neutra e respire fundo</p></div>
-    </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">2</div><div class="ex-info"><div class="ex-name">Piriforme (Glúteo)</div><div class="ex-sets">2 × 30 seg cada lado</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=G_CkfuiYxE8" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/G_CkfuiYxE8/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Piriforme — Alongamento de Glúteo</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Aproxime o tornozelo do joelho oposto</p></div>
+  <div class="aviso">
+    <span style="font-size:18px">⚠️</span>
+    <div class="aviso-body">
+      <h4>Regras</h4>
+      <ul>
+        <li>Joelho não entra pra dentro</li>
+        <li>Dor máxima 3/10</li>
+        <li>Controle &gt; velocidade</li>
+      </ul>
     </div>
   </div>
 
-  <div class="grupo"><div class="grupo-titulo" style="color:var(--seg)">🔄 Mobilidade</div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">3</div><div class="ex-info"><div class="ex-name">90/90 Quadril</div><div class="ex-sets">2 × 8 reps cada lado</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=eUf3VF2bCnw" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/eUf3VF2bCnw/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">90/90 — Mobilidade de Quadril</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Sente o quadril e gire lentamente</p></div>
+  <div class="grupo">
+    <div class="grupo-titulo" style="color:var(--seg)">⏱ Alongamentos</div>
+    <div class="ex" id="e1">
+      <div class="ex-topo" onclick="abrir('e1')">
+        <div class="ex-num" style="background:rgba(0,212,170,.12);color:var(--seg)">1</div>
+        <div><div class="ex-nome">Flexor de Quadril</div><div class="ex-series">2 × 30 seg cada lado</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=alongamento+flexor+de+quadril" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Mantenha a pelve neutra e respire fundo</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">4</div><div class="ex-info"><div class="ex-name">Mobilidade de Ombro com Bastão</div><div class="ex-sets">2 × 10 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=WEHLaLiHSGs" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/WEHLaLiHSGs/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Mobilidade de Ombro com Bastão</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Movimentos lentos e controlados</p></div>
+    <div class="ex" id="e2">
+      <div class="ex-topo" onclick="abrir('e2')">
+        <div class="ex-num" style="background:rgba(0,212,170,.12);color:var(--seg)">2</div>
+        <div><div class="ex-nome">Piriforme (Glúteo)</div><div class="ex-series">2 × 30 seg cada lado</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=alongamento+piriforme+gluteo" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Aproxime o tornozelo do joelho oposto</p>
+      </div>
     </div>
   </div>
 
-  <div class="grupo"><div class="grupo-titulo" style="color:var(--seg)">💪 Superiores</div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">5</div><div class="ex-info"><div class="ex-name">Remada com Elástico</div><div class="ex-sets">3 × 12 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=roCP0qPTB_k" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/roCP0qPTB_k/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Remada com Elástico</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Retraia as escápulas ao puxar</p></div>
+  <div class="grupo">
+    <div class="grupo-titulo" style="color:var(--seg)">🔄 Mobilidade</div>
+    <div class="ex" id="e3">
+      <div class="ex-topo" onclick="abrir('e3')">
+        <div class="ex-num" style="background:rgba(0,212,170,.12);color:var(--seg)">3</div>
+        <div><div class="ex-nome">90/90 Quadril</div><div class="ex-series">2 × 8 reps cada lado</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=mobilidade+90+90+quadril" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Sente o quadril e gire lentamente</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">6</div><div class="ex-info"><div class="ex-name">Rotação Externa de Ombro</div><div class="ex-sets">3 × 12 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=MmB5pFGGUSQ" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/MmB5pFGGUSQ/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Rotação Externa de Ombro</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Cotovelo colado ao corpo, movimento lento</p></div>
+    <div class="ex" id="e4">
+      <div class="ex-topo" onclick="abrir('e4')">
+        <div class="ex-num" style="background:rgba(0,212,170,.12);color:var(--seg)">4</div>
+        <div><div class="ex-nome">Mobilidade de Ombro com Bastão</div><div class="ex-series">2 × 10 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=mobilidade+ombro+bastao" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Movimentos lentos e controlados</p>
+      </div>
     </div>
   </div>
 
-  <div class="grupo"><div class="grupo-titulo" style="color:var(--seg)">🍑 Glúteo</div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">7</div><div class="ex-info"><div class="ex-name">Ponte de Glúteo</div><div class="ex-sets">3 × 12 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=wPM8icPu6H8" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/wPM8icPu6H8/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Ponte de Glúteo</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Aperte o glúteo no topo e controle a descida</p></div>
+  <div class="grupo">
+    <div class="grupo-titulo" style="color:var(--seg)">💪 Superiores</div>
+    <div class="ex" id="e5">
+      <div class="ex-topo" onclick="abrir('e5')">
+        <div class="ex-num" style="background:rgba(0,212,170,.12);color:var(--seg)">5</div>
+        <div><div class="ex-nome">Remada com Elástico</div><div class="ex-series">3 × 12 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=remada+elastico+fisioterapia" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Retraia as escápulas ao puxar</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">8</div><div class="ex-info"><div class="ex-name">Ostra (Clamshell)</div><div class="ex-sets">3 × 12 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=M8hkIBIVFTQ" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/M8hkIBIVFTQ/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Ostra / Clamshell</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Não deixe o quadril rotacionar para trás</p></div>
+    <div class="ex" id="e6">
+      <div class="ex-topo" onclick="abrir('e6')">
+        <div class="ex-num" style="background:rgba(0,212,170,.12);color:var(--seg)">6</div>
+        <div><div class="ex-nome">Rotação Externa de Ombro</div><div class="ex-series">3 × 12 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=rotacao+externa+ombro+elastico" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Cotovelo colado ao corpo, movimento lento</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grupo">
+    <div class="grupo-titulo" style="color:var(--seg)">🍑 Glúteo</div>
+    <div class="ex" id="e7">
+      <div class="ex-topo" onclick="abrir('e7')">
+        <div class="ex-num" style="background:rgba(0,212,170,.12);color:var(--seg)">7</div>
+        <div><div class="ex-nome">Ponte de Glúteo</div><div class="ex-series">3 × 12 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=ponte+de+gluteo" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Aperte o glúteo no topo e controle a descida</p>
+      </div>
+    </div>
+    <div class="ex" id="e8">
+      <div class="ex-topo" onclick="abrir('e8')">
+        <div class="ex-num" style="background:rgba(0,212,170,.12);color:var(--seg)">8</div>
+        <div><div class="ex-nome">Ostra (Clamshell)</div><div class="ex-series">3 × 12 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=exercicio+ostra+clamshell" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Não deixe o quadril rotacionar para trás</p>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ===== TERÇA / FICHA B ===== -->
-<div class="section ter" id="ter">
+<!-- TERÇA -->
+<div class="section" id="ter">
   <div class="ficha-header">
-    <div class="ficha-badge" style="color:var(--ter)">B</div>
+    <div class="ficha-letter" style="color:var(--ter)">B</div>
     <div class="ficha-info">
       <h2 style="color:var(--ter)">Ficha B — Terça</h2>
-      <p>Alongamento + Superiores + Mobilidade + Core</p>
-      <div class="ficha-tags"><span class="tag" style="background:rgba(79,142,247,0.12);color:var(--ter)">Incluir equilíbrio</span><span class="tag" style="background:rgba(79,142,247,0.12);color:var(--ter)">Manhã</span></div>
+      <p>Alongamento · Mobilidade · Superiores · Core</p>
+      <div class="tags">
+        <span class="tag" style="background:rgba(79,142,247,.12);color:var(--ter)">Equilíbrio</span>
+        <span class="tag" style="background:rgba(79,142,247,.12);color:var(--ter)">Manhã</span>
+      </div>
     </div>
   </div>
 
-  <div class="grupo"><div class="grupo-titulo" style="color:var(--ter)">⏱ Alongamentos</div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">1</div><div class="ex-info"><div class="ex-name">Oblíquo do Abdômen</div><div class="ex-sets">2 × 30 seg cada lado</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=9PkMOBqAWDQ" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/9PkMOBqAWDQ/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Alongamento de Oblíquo</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Incline lentamente sem torcer o tronco</p></div>
+  <div class="grupo">
+    <div class="grupo-titulo" style="color:var(--ter)">⏱ Alongamentos</div>
+    <div class="ex" id="b1">
+      <div class="ex-topo" onclick="abrir('b1')">
+        <div class="ex-num" style="background:rgba(79,142,247,.12);color:var(--ter)">1</div>
+        <div><div class="ex-nome">Oblíquo do Abdômen</div><div class="ex-series">2 × 30 seg cada lado</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=alongamento+obliquo+abdomem" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Incline lentamente sem torcer o tronco</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">2</div><div class="ex-info"><div class="ex-name">Peitoral Menor</div><div class="ex-sets">2 × 30 seg cada lado</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=nWXCMaihMgk" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/nWXCMaihMgk/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Alongamento de Peitoral Menor</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Apoie o braço na parede a 90° e gire o tronco</p></div>
-    </div>
-  </div>
-
-  <div class="grupo"><div class="grupo-titulo" style="color:var(--ter)">🔄 Mobilidade</div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">3</div><div class="ex-info"><div class="ex-name">Wall Slide</div><div class="ex-sets">2 × 10 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=SBdmPKy5OHA" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/SBdmPKy5OHA/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Wall Slide — Mobilidade de Ombro</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Costas e cotovelos encostados na parede</p></div>
-    </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">4</div><div class="ex-info"><div class="ex-name">Deslizamento na Parede</div><div class="ex-sets">2 × 10 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=SBdmPKy5OHA" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/SBdmPKy5OHA/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Deslizamento na Parede</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Movimento lento para cima e para baixo</p></div>
-    </div>
-  </div>
-
-  <div class="grupo"><div class="grupo-titulo" style="color:var(--ter)">💪 Superiores</div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">5</div><div class="ex-info"><div class="ex-name">Tríceps Unilateral (Elástico)</div><div class="ex-sets">3 × 12 reps cada lado</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=eGo4IYlbE5g" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/eGo4IYlbE5g/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Tríceps Unilateral com Elástico</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Cotovelo fixo, estenda o braço completamente</p></div>
-    </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">6</div><div class="ex-info"><div class="ex-name">Bíceps na Cadeira + Agachamento</div><div class="ex-sets">2 × 12 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=ykJmrZ5v0Oo" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/ykJmrZ5v0Oo/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Rosca Bíceps + Agachamento</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Combine os dois movimentos no mesmo tempo</p></div>
+    <div class="ex" id="b2">
+      <div class="ex-topo" onclick="abrir('b2')">
+        <div class="ex-num" style="background:rgba(79,142,247,.12);color:var(--ter)">2</div>
+        <div><div class="ex-nome">Peitoral Menor</div><div class="ex-series">2 × 30 seg cada lado</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=alongamento+peitoral+menor" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Apoie o braço na parede a 90° e gire o tronco</p>
+      </div>
     </div>
   </div>
 
-  <div class="grupo"><div class="grupo-titulo" style="color:var(--ter)">🧱 Core</div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">7</div><div class="ex-info"><div class="ex-name">Prancha</div><div class="ex-sets">3 × 30 seg</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=ASdvN_XEl_c" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/ASdvN_XEl_c/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Prancha — Core</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Quadril alinhado, não suba nem desça</p></div>
+  <div class="grupo">
+    <div class="grupo-titulo" style="color:var(--ter)">🔄 Mobilidade</div>
+    <div class="ex" id="b3">
+      <div class="ex-topo" onclick="abrir('b3')">
+        <div class="ex-num" style="background:rgba(79,142,247,.12);color:var(--ter)">3</div>
+        <div><div class="ex-nome">Wall Slide</div><div class="ex-series">2 × 10 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=wall+slide+mobilidade+ombro" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Costas e cotovelos encostados na parede</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">8</div><div class="ex-info"><div class="ex-name">Dead Bug</div><div class="ex-sets">3 × 10 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=4XLEnwUr1d8" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/4XLEnwUr1d8/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Dead Bug — Core</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Lombar no chão o tempo todo</p></div>
+    <div class="ex" id="b4">
+      <div class="ex-topo" onclick="abrir('b4')">
+        <div class="ex-num" style="background:rgba(79,142,247,.12);color:var(--ter)">4</div>
+        <div><div class="ex-nome">Deslizamento na Parede</div><div class="ex-series">2 × 10 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=deslizamento+parede+ombro" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Movimento lento para cima e para baixo</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">9</div><div class="ex-info"><div class="ex-name">Panturrilha em Pé</div><div class="ex-sets">3 × 15 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=gwLzBJYoWlI" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/gwLzBJYoWlI/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Panturrilha em Pé</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Suba devagar e desça com controle total</p></div>
+  </div>
+
+  <div class="grupo">
+    <div class="grupo-titulo" style="color:var(--ter)">💪 Superiores</div>
+    <div class="ex" id="b5">
+      <div class="ex-topo" onclick="abrir('b5')">
+        <div class="ex-num" style="background:rgba(79,142,247,.12);color:var(--ter)">5</div>
+        <div><div class="ex-nome">Tríceps Unilateral (Elástico)</div><div class="ex-series">3 × 12 reps cada lado</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=triceps+unilateral+elastico" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Cotovelo fixo, estenda o braço completamente</p>
+      </div>
+    </div>
+    <div class="ex" id="b6">
+      <div class="ex-topo" onclick="abrir('b6')">
+        <div class="ex-num" style="background:rgba(79,142,247,.12);color:var(--ter)">6</div>
+        <div><div class="ex-nome">Bíceps na Cadeira + Agachamento</div><div class="ex-series">2 × 12 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=rosca+biceps+agachamento" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Combine os dois movimentos ao mesmo tempo</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grupo">
+    <div class="grupo-titulo" style="color:var(--ter)">🧱 Core</div>
+    <div class="ex" id="b7">
+      <div class="ex-topo" onclick="abrir('b7')">
+        <div class="ex-num" style="background:rgba(79,142,247,.12);color:var(--ter)">7</div>
+        <div><div class="ex-nome">Prancha</div><div class="ex-series">3 × 30 seg</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=prancha+abdominal+como+fazer" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Quadril alinhado, não suba nem desça</p>
+      </div>
+    </div>
+    <div class="ex" id="b8">
+      <div class="ex-topo" onclick="abrir('b8')">
+        <div class="ex-num" style="background:rgba(79,142,247,.12);color:var(--ter)">8</div>
+        <div><div class="ex-nome">Dead Bug</div><div class="ex-series">3 × 10 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=dead+bug+exercicio+core" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Lombar no chão o tempo todo</p>
+      </div>
+    </div>
+    <div class="ex" id="b9">
+      <div class="ex-topo" onclick="abrir('b9')">
+        <div class="ex-num" style="background:rgba(79,142,247,.12);color:var(--ter)">9</div>
+        <div><div class="ex-nome">Panturrilha em Pé</div><div class="ex-series">3 × 15 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=elevacao+panturrilha+em+pe" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Suba devagar e desça com controle total</p>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ===== QUINTA / FICHA C ===== -->
-<div class="section qui" id="qui">
+<!-- QUINTA -->
+<div class="section" id="qui">
   <div class="ficha-header">
-    <div class="ficha-badge" style="color:var(--qui)">C</div>
+    <div class="ficha-letter" style="color:var(--qui)">C</div>
     <div class="ficha-info">
       <h2 style="color:var(--qui)">Ficha C — Quinta</h2>
-      <p>Alongamento + Mobilidade + Superiores + Quadríceps</p>
-      <div class="ficha-tags"><span class="tag" style="background:rgba(255,107,53,0.12);color:var(--qui)">Incluir equilíbrio</span><span class="tag" style="background:rgba(255,107,53,0.12);color:var(--qui)">Manhã</span></div>
+      <p>Alongamento · Mobilidade · Superiores · Quadríceps</p>
+      <div class="tags">
+        <span class="tag" style="background:rgba(255,107,53,.12);color:var(--qui)">Equilíbrio</span>
+        <span class="tag" style="background:rgba(255,107,53,.12);color:var(--qui)">Manhã</span>
+      </div>
     </div>
   </div>
 
-  <div class="grupo"><div class="grupo-titulo" style="color:var(--qui)">⏱ Alongamentos</div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">1</div><div class="ex-info"><div class="ex-name">Flexor de Quadril</div><div class="ex-sets">2 × 30 seg cada lado</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=YQmpO9VT2X4" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/YQmpO9VT2X4/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Flexor de Quadril — Alongamento</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Mantenha a pelve neutra e respire fundo</p></div>
+  <div class="grupo">
+    <div class="grupo-titulo" style="color:var(--qui)">⏱ Alongamentos</div>
+    <div class="ex" id="c1">
+      <div class="ex-topo" onclick="abrir('c1')">
+        <div class="ex-num" style="background:rgba(255,107,53,.12);color:var(--qui)">1</div>
+        <div><div class="ex-nome">Flexor de Quadril</div><div class="ex-series">2 × 30 seg cada lado</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=alongamento+flexor+quadril" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Mantenha a pelve neutra e respire fundo</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">2</div><div class="ex-info"><div class="ex-name">Alongamento de Quadríceps</div><div class="ex-sets">2 × 30 seg cada lado</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=Lz9Kz5XFHl8" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/Lz9Kz5XFHl8/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Alongamento de Quadríceps</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Puxe o calcanhar em direção ao glúteo</p></div>
-    </div>
-  </div>
-
-  <div class="grupo"><div class="grupo-titulo" style="color:var(--qui)">🔄 Mobilidade</div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">3</div><div class="ex-info"><div class="ex-name">Escalada de Dedos na Parede</div><div class="ex-sets">2 × 10 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=KT3dbZnMGto" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/KT3dbZnMGto/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Escalada de Dedos na Parede</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Suba os dedos lentamente na parede</p></div>
-    </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">4</div><div class="ex-info"><div class="ex-name">Mobilidade de Ombro com Bastão (↑↓)</div><div class="ex-sets">2 × 10 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=WEHLaLiHSGs" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/WEHLaLiHSGs/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Mobilidade de Ombro com Bastão</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Use o braço saudável para guiar o movimento</p></div>
-    </div>
-  </div>
-
-  <div class="grupo"><div class="grupo-titulo" style="color:var(--qui)">💪 Superiores</div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">5</div><div class="ex-info"><div class="ex-name">Rosca Bíceps (Elástico)</div><div class="ex-sets">3 × 10 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=ykJmrZ5v0Oo" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/ykJmrZ5v0Oo/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Rosca Bíceps com Elástico</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Cotovelo fixo, concentre na fase excêntrica</p></div>
-    </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">6</div><div class="ex-info"><div class="ex-name">Rotação Interna de Ombro</div><div class="ex-sets">3 × 12 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=hzrEa9g3qMs" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/hzrEa9g3qMs/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Rotação Interna de Ombro</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Movimento controlado, sem compensar com tronco</p></div>
+    <div class="ex" id="c2">
+      <div class="ex-topo" onclick="abrir('c2')">
+        <div class="ex-num" style="background:rgba(255,107,53,.12);color:var(--qui)">2</div>
+        <div><div class="ex-nome">Alongamento de Quadríceps</div><div class="ex-series">2 × 30 seg cada lado</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=alongamento+quadriceps+em+pe" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Puxe o calcanhar em direção ao glúteo</p>
+      </div>
     </div>
   </div>
 
-  <div class="grupo"><div class="grupo-titulo" style="color:var(--qui)">🦵 Quadríceps / Inferior</div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">7</div><div class="ex-info"><div class="ex-name">Agachamento</div><div class="ex-sets">3 × 10 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=gsNoPYwWXeM" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/gsNoPYwWXeM/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Agachamento</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Joelhos para fora, desça controlado</p></div>
+  <div class="grupo">
+    <div class="grupo-titulo" style="color:var(--qui)">🔄 Mobilidade</div>
+    <div class="ex" id="c3">
+      <div class="ex-topo" onclick="abrir('c3')">
+        <div class="ex-num" style="background:rgba(255,107,53,.12);color:var(--qui)">3</div>
+        <div><div class="ex-nome">Escalada de Dedos na Parede</div><div class="ex-series">2 × 10 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=escalada+dedos+parede+ombro" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Suba os dedos lentamente na parede</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">8</div><div class="ex-info"><div class="ex-name">Step-Down Lateral</div><div class="ex-sets">3 × 8 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=WDLrGcOer1I" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/WDLrGcOer1I/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Step-Down Lateral</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Desça devagar, joelho alinhado com o pé</p></div>
+    <div class="ex" id="c4">
+      <div class="ex-topo" onclick="abrir('c4')">
+        <div class="ex-num" style="background:rgba(255,107,53,.12);color:var(--qui)">4</div>
+        <div><div class="ex-nome">Mobilidade de Ombro com Bastão (↑↓)</div><div class="ex-series">2 × 10 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=mobilidade+ombro+bastao+elevacao" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Use o braço saudável para guiar o movimento</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">9</div><div class="ex-info"><div class="ex-name">Step-Down Frontal</div><div class="ex-sets">3 × 8 reps</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=WDLrGcOer1I" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/WDLrGcOer1I/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Step-Down Frontal</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Controle o joelho, não deixe cair para dentro</p></div>
+  </div>
+
+  <div class="grupo">
+    <div class="grupo-titulo" style="color:var(--qui)">💪 Superiores</div>
+    <div class="ex" id="c5">
+      <div class="ex-topo" onclick="abrir('c5')">
+        <div class="ex-num" style="background:rgba(255,107,53,.12);color:var(--qui)">5</div>
+        <div><div class="ex-nome">Rosca Bíceps (Elástico)</div><div class="ex-series">3 × 10 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=rosca+biceps+elastico" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Cotovelo fixo, concentre na fase excêntrica</p>
+      </div>
+    </div>
+    <div class="ex" id="c6">
+      <div class="ex-topo" onclick="abrir('c6')">
+        <div class="ex-num" style="background:rgba(255,107,53,.12);color:var(--qui)">6</div>
+        <div><div class="ex-nome">Rotação Interna de Ombro</div><div class="ex-series">3 × 12 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=rotacao+interna+ombro+elastico" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Movimento controlado, sem compensar com tronco</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grupo">
+    <div class="grupo-titulo" style="color:var(--qui)">🦵 Quadríceps</div>
+    <div class="ex" id="c7">
+      <div class="ex-topo" onclick="abrir('c7')">
+        <div class="ex-num" style="background:rgba(255,107,53,.12);color:var(--qui)">7</div>
+        <div><div class="ex-nome">Agachamento</div><div class="ex-series">3 × 10 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=agachamento+livre+tecnica" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Joelhos para fora, desça controlado</p>
+      </div>
+    </div>
+    <div class="ex" id="c8">
+      <div class="ex-topo" onclick="abrir('c8')">
+        <div class="ex-num" style="background:rgba(255,107,53,.12);color:var(--qui)">8</div>
+        <div><div class="ex-nome">Step-Down Lateral</div><div class="ex-series">3 × 8 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=step+down+lateral+joelho" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Desça devagar, joelho alinhado com o pé</p>
+      </div>
+    </div>
+    <div class="ex" id="c9">
+      <div class="ex-topo" onclick="abrir('c9')">
+        <div class="ex-num" style="background:rgba(255,107,53,.12);color:var(--qui)">9</div>
+        <div><div class="ex-nome">Step-Down Frontal</div><div class="ex-series">3 × 8 reps</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=step+down+frontal+joelho" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Controle o joelho, não deixe cair para dentro</p>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ===== PRÉ-JOGO ===== -->
-<div class="section pre" id="pre">
+<!-- PRÉ-JOGO -->
+<div class="section" id="pre">
   <div class="ficha-header">
-    <div class="ficha-badge" style="color:var(--pre)">🎯</div>
+    <div class="ficha-letter" style="color:var(--pre)">🎯</div>
     <div class="ficha-info">
       <h2 style="color:var(--pre)">Aquecimento Pré-Jogo</h2>
-      <p>Duração: ~8 minutos · Antes do jogo</p>
+      <p>~8 minutos · Antes do jogo</p>
     </div>
   </div>
-  <div class="cronometro">
+  <div class="crono">
     <h3>⏱ Cronômetro</h3>
-    <div class="timer-display timer-pre" id="timer-pre">08:00</div>
-    <div class="timer-btns">
-      <button class="btn btn-primary" onclick="startTimer('pre',480)">Iniciar</button>
-      <button class="btn btn-ghost" onclick="resetTimer('pre',480)">Resetar</button>
+    <div class="crono-display" style="color:var(--pre)" id="t-pre">08:00</div>
+    <div class="crono-btns">
+      <button class="btn-crono" style="background:var(--pre);color:#000" onclick="iniciar('pre',480)">Iniciar</button>
+      <button class="btn-crono btn-ghost" onclick="resetar('pre',480)">Resetar</button>
     </div>
   </div>
-  <div class="grupo"><div class="grupo-titulo" style="color:var(--pre)">🔥 Sequência Pré-Jogo</div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">1</div><div class="ex-info"><div class="ex-name">Mobilidade de Tornozelo</div><div class="ex-sets">~90 seg</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=5PLgmo4GAbQ" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/5PLgmo4GAbQ/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Mobilidade de Tornozelo</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Círculos lentos e mobilização contra a parede</p></div>
+  <div class="grupo">
+    <div class="grupo-titulo" style="color:var(--pre)">🔥 Sequência</div>
+    <div class="ex" id="p1">
+      <div class="ex-topo" onclick="abrir('p1')">
+        <div class="ex-num" style="background:rgba(167,139,250,.12);color:var(--pre)">1</div>
+        <div><div class="ex-nome">Mobilidade de Tornozelo</div><div class="ex-series">~90 seg</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=mobilidade+tornozelo+aquecimento" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Círculos lentos e mobilização contra a parede</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">2</div><div class="ex-info"><div class="ex-name">90/90 Quadril</div><div class="ex-sets">~90 seg</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=eUf3VF2bCnw" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/eUf3VF2bCnw/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">90/90 Quadril</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Gire suavemente dos dois lados</p></div>
+    <div class="ex" id="p2">
+      <div class="ex-topo" onclick="abrir('p2')">
+        <div class="ex-num" style="background:rgba(167,139,250,.12);color:var(--pre)">2</div>
+        <div><div class="ex-nome">90/90 Quadril</div><div class="ex-series">~90 seg</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=mobilidade+90+90+quadril" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Gire suavemente dos dois lados</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">3</div><div class="ex-info"><div class="ex-name">Ponte de Glúteo</div><div class="ex-sets">~90 seg</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=wPM8icPu6H8" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/wPM8icPu6H8/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Ponte de Glúteo</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Ativa o glúteo antes do jogo</p></div>
+    <div class="ex" id="p3">
+      <div class="ex-topo" onclick="abrir('p3')">
+        <div class="ex-num" style="background:rgba(167,139,250,.12);color:var(--pre)">3</div>
+        <div><div class="ex-nome">Ponte de Glúteo</div><div class="ex-series">~90 seg</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=ponte+de+gluteo+ativacao" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Ativa o glúteo antes do jogo</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">4</div><div class="ex-info"><div class="ex-name">Agachamento Leve</div><div class="ex-sets">~90 seg</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=gsNoPYwWXeM" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/gsNoPYwWXeM/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Agachamento com Peso Corporal</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Peso corporal, joelhos alinhados</p></div>
+    <div class="ex" id="p4">
+      <div class="ex-topo" onclick="abrir('p4')">
+        <div class="ex-num" style="background:rgba(167,139,250,.12);color:var(--pre)">4</div>
+        <div><div class="ex-nome">Agachamento Leve</div><div class="ex-series">~90 seg</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=agachamento+peso+corporal+aquecimento" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Joelhos alinhados, movimento suave</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">5</div><div class="ex-info"><div class="ex-name">Saltos Leves</div><div class="ex-sets">~60 seg</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=6e8pQjIFKEk" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/6e8pQjIFKEk/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Saltos Leves</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Aterrisse suave com joelhos para fora</p></div>
+    <div class="ex" id="p5">
+      <div class="ex-topo" onclick="abrir('p5')">
+        <div class="ex-num" style="background:rgba(167,139,250,.12);color:var(--pre)">5</div>
+        <div><div class="ex-nome">Saltos Leves</div><div class="ex-series">~60 seg</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=saltos+leves+aquecimento" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Aterrisse suave com joelhos para fora</p>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ===== PÓS-JOGO ===== -->
-<div class="section pos" id="pos">
+<!-- PÓS-JOGO -->
+<div class="section" id="pos">
   <div class="ficha-header">
-    <div class="ficha-badge" style="color:var(--pos)">🧘</div>
+    <div class="ficha-letter" style="color:var(--pos)">🧘</div>
     <div class="ficha-info">
       <h2 style="color:var(--pos)">Recuperação Pós-Jogo</h2>
-      <p>Duração: 5 a 10 minutos · Após o jogo</p>
+      <p>5 a 10 minutos · Após o jogo</p>
     </div>
   </div>
-  <div class="cronometro">
+  <div class="crono">
     <h3>⏱ Cronômetro</h3>
-    <div class="timer-display timer-pos" id="timer-pos">10:00</div>
-    <div class="timer-btns">
-      <button class="btn" style="background:var(--pos);color:#000;font-weight:600" onclick="startTimer('pos',600)">Iniciar</button>
-      <button class="btn btn-ghost" onclick="resetTimer('pos',600)">Resetar</button>
+    <div class="crono-display" style="color:var(--pos)" id="t-pos">10:00</div>
+    <div class="crono-btns">
+      <button class="btn-crono" style="background:var(--pos);color:#000" onclick="iniciar('pos',600)">Iniciar</button>
+      <button class="btn-crono btn-ghost" onclick="resetar('pos',600)">Resetar</button>
     </div>
   </div>
-  <div class="grupo"><div class="grupo-titulo" style="color:var(--pos)">🧊 Sequência Pós-Jogo</div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">1</div><div class="ex-info"><div class="ex-name">Alongamento de Quadríceps</div><div class="ex-sets">30–60 seg cada lado</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=Lz9Kz5XFHl8" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/Lz9Kz5XFHl8/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Alongamento de Quadríceps</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Respire fundo e relaxe o músculo</p></div>
+  <div class="grupo">
+    <div class="grupo-titulo" style="color:var(--pos)">🧊 Sequência</div>
+    <div class="ex" id="o1">
+      <div class="ex-topo" onclick="abrir('o1')">
+        <div class="ex-num" style="background:rgba(245,158,11,.12);color:var(--pos)">1</div>
+        <div><div class="ex-nome">Alongamento de Quadríceps</div><div class="ex-series">30–60 seg cada lado</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=alongamento+quadriceps+em+pe" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Respire fundo e relaxe o músculo</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">2</div><div class="ex-info"><div class="ex-name">Posterior de Coxa (Isquiotibiais)</div><div class="ex-sets">30–60 seg cada lado</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=gK5aEF8PNMI" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/gK5aEF8PNMI/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Posterior de Coxa / Isquiotibiais</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Joelho estendido, incline o tronco à frente</p></div>
+    <div class="ex" id="o2">
+      <div class="ex-topo" onclick="abrir('o2')">
+        <div class="ex-num" style="background:rgba(245,158,11,.12);color:var(--pos)">2</div>
+        <div><div class="ex-nome">Posterior de Coxa (Isquiotibiais)</div><div class="ex-series">30–60 seg cada lado</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=alongamento+posterior+coxa+isquiotibiais" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Joelho estendido, incline o tronco à frente</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">3</div><div class="ex-info"><div class="ex-name">Glúteo (Piriforme)</div><div class="ex-sets">30–60 seg cada lado</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=G_CkfuiYxE8" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/G_CkfuiYxE8/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Glúteo — Piriforme</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Sinta o glúteo profundo relaxar</p></div>
+    <div class="ex" id="o3">
+      <div class="ex-topo" onclick="abrir('o3')">
+        <div class="ex-num" style="background:rgba(245,158,11,.12);color:var(--pos)">3</div>
+        <div><div class="ex-nome">Glúteo (Piriforme)</div><div class="ex-series">30–60 seg cada lado</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=alongamento+piriforme+gluteo" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Sinta o glúteo profundo relaxar</p>
+      </div>
     </div>
-    <div class="ex-card" onclick="toggle(this)">
-      <div class="ex-header"><div class="ex-num">4</div><div class="ex-info"><div class="ex-name">Mobilidade Leve (90/90)</div><div class="ex-sets">30–60 seg</div></div><div class="ex-arrow">⌄</div></div>
-      <div class="ex-body"><a class="video-btn" href="https://www.youtube.com/watch?v=eUf3VF2bCnw" target="_blank"><div class="video-thumb"><img src="https://img.youtube.com/vi/eUf3VF2bCnw/mqdefault.jpg" alt=""><div class="play-overlay">▶</div></div><div class="video-info"><div class="video-label">Assistir no YouTube</div><div class="video-sub">Mobilidade Leve 90/90</div></div><div class="video-arrow">↗</div></a><p class="video-tip">💡 Movimentos suaves para finalizar</p></div>
+    <div class="ex" id="o4">
+      <div class="ex-topo" onclick="abrir('o4')">
+        <div class="ex-num" style="background:rgba(245,158,11,.12);color:var(--pos)">4</div>
+        <div><div class="ex-nome">Mobilidade Leve (90/90)</div><div class="ex-series">30–60 seg</div></div>
+        <div class="ex-seta">⌄</div>
+      </div>
+      <div class="ex-corpo">
+        <a class="btn-yt" href="https://www.youtube.com/results?search_query=mobilidade+90+90+recuperacao" target="_blank">▶ Ver no YouTube</a>
+        <p class="dica">💡 Movimentos suaves para finalizar</p>
+      </div>
     </div>
   </div>
 </div>
@@ -436,46 +655,42 @@
 </div><!-- /content -->
 
 <script>
-document.querySelectorAll('.tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    tab.classList.add('active');
-    document.getElementById(tab.dataset.tab).classList.add('active');
+// TABS
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+    window.scrollTo(0, 0);
   });
 });
 
-function toggle(card) {
-  // Não fechar se clicou no link do vídeo
-  card.classList.toggle('open');
+// ABRIR/FECHAR exercício
+function abrir(id) {
+  document.getElementById(id).classList.toggle('aberto');
 }
 
-// Impede que o clique no botão de vídeo feche o card
-document.addEventListener('click', function(e) {
-  if (e.target.closest('.video-btn')) {
-    e.stopPropagation();
-  }
-});
-
-const timers = {};
+// CRONÔMETRO
+var timers = {};
 function fmt(s) {
-  return `${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;
+  return String(Math.floor(s/60)).padStart(2,'0') + ':' + String(s%60).padStart(2,'0');
 }
-function startTimer(id, total) {
-  if (timers[id]) clearInterval(timers[id].interval);
-  const el = document.getElementById('timer-'+id);
-  let rem = timers[id]?.remaining ?? total;
-  timers[id] = { remaining: rem, interval: setInterval(() => {
+function iniciar(id, total) {
+  if (timers[id]) clearInterval(timers[id].iv);
+  var el = document.getElementById('t-' + id);
+  var rem = (timers[id] && timers[id].rem > 0) ? timers[id].rem : total;
+  timers[id] = { rem: rem, iv: setInterval(function() {
     rem--;
-    timers[id].remaining = rem;
+    timers[id].rem = rem;
     el.textContent = fmt(rem);
-    if (rem <= 0) { clearInterval(timers[id].interval); el.textContent = '00:00'; }
+    if (rem <= 0) { clearInterval(timers[id].iv); }
   }, 1000)};
 }
-function resetTimer(id, total) {
-  if (timers[id]) clearInterval(timers[id].interval);
-  timers[id] = { remaining: total };
-  document.getElementById('timer-'+id).textContent = fmt(total);
+function resetar(id, total) {
+  if (timers[id]) clearInterval(timers[id].iv);
+  timers[id] = { rem: total };
+  document.getElementById('t-' + id).textContent = fmt(total);
 }
 </script>
 </body>
